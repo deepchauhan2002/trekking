@@ -1,26 +1,66 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  /* Color palette */
+  --drab-dark-brown: #3d3522;
+  --drab-dark-brown-2: #4a442d;
+  --hunter-green: #386150;
+  --keppel: #58b09c;
+  --nyanza: #caf7e2;
+  
+  /* Theme variables */
+  --primary: var(--hunter-green);
+  --secondary: var(--keppel);
+  --accent: var(--nyanza);
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground: var(--drab-dark-brown);
+  --muted: var(--drab-dark-brown-2);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--drab-dark-brown);
+    --foreground: var(--nyanza);
+    --muted: var(--keppel);
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  margin:0
+}
+
+/* Common gradient styles */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--keppel), var(--hunter-green));
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--nyanza), var(--keppel));
+}
+
+.title-large {
+  font-size: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .title-large {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .title-large {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title-large {
+    font-size: 8rem;
+  }
 }
